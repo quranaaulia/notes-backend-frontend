@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import { BASE_URL } from "../utils/util"; // Pastikan path sesuai lokasi file
+import { BASE_URL } from "../utils/utils"; // Pastikan path sesuai lokasi file
 
 const createNote = async (noteData) => {
   return await axios.post(`${BASE_URL}/notes`, noteData);
