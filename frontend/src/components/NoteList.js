@@ -1,5 +1,15 @@
 import React, { useEffect, useState } from "react";
-import { getNotes, deleteNote } from "../api";
+import axios from "axios";
+import { BASE_URL } from "../utils/util"; // Pastikan path sesuai lokasi file
+
+const getNotes = async () => {
+  const response = await axios.get(`${BASE_URL}/notes`);
+  return response.data;
+};
+
+const deleteNote = async (id) => {
+  return await axios.delete(`${BASE_URL}/notes/${id}`);
+};
 
 const NoteList = ({ onEdit }) => {
   const [notes, setNotes] = useState([]);

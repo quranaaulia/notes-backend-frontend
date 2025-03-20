@@ -1,5 +1,14 @@
 import React, { useState, useEffect } from "react";
-import { createNote, updateNote } from "../api";
+import axios from "axios";
+import { BASE_URL } from "../utils/util"; // Pastikan path sesuai lokasi file
+
+const createNote = async (noteData) => {
+  return await axios.post(`${BASE_URL}/notes`, noteData);
+};
+
+const updateNote = async (id, noteData) => {
+  return await axios.put(`${BASE_URL}/notes/${id}`, noteData);
+};
 
 const NoteForm = ({ selectedNote, refreshNotes }) => {
   const [formData, setFormData] = useState({ nama: "", title: "", content: "" });
